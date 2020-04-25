@@ -10,14 +10,14 @@ import requests
 import urllib
 
 from asyncio import ensure_future, get_event_loop, sleep as asleep
-from tkinter import Label, Entry, Button, Tk, TclError
+from tkinter import Label, Entry, Button, Tk, StringVar, TclError
 
 from bs4 import BeautifulSoup
 from lxml import html
 
 
 
-class App(tk.Tk):
+class App(Tk):
     def __init__(self):
         super().__init__()
         self._configure()
@@ -44,7 +44,7 @@ class App(tk.Tk):
         self.refresh_entry.insert(0, '1')
         self.refresh_entry.grid(column=0, row=2)
 
-        self.slot_string_var = tk.StringVar(value="Créneau disponible: ")
+        self.slot_string_var = StringVar(value="Créneau disponible: ")
         self.slot_label = Label(self, textvariable=self.slot_string_var)
         self.slot_label.grid(column=0, row=3)
 
