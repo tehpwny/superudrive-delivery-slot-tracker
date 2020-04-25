@@ -26,7 +26,7 @@ class App(Tk):
 
     def _configure(self):
         self.title("drive-u delivery slot tracker")
-        self.geometry('450x220')
+        self.geometry('450x240')
 
         self.icon_size_x = 64
         self.icon_size_y = 64
@@ -51,11 +51,11 @@ class App(Tk):
 
         self.refresh_entry = Entry(self, width=4, text='1')
         self.refresh_entry.insert(0, '1')
-        self.refresh_entry.grid(column=0, row=3)
+        self.refresh_entry.grid(column=0, row=4)
 
         self.slot_string_var = StringVar(value="Créneau disponible: ")
         self.slot_label = Label(self, textvariable=self.slot_string_var)
-        self.slot_label.grid(column=0, row=4)
+        self.slot_label.grid(column=0, row=5)
 
         # self.status_label.pack(side = "right", fill = "both", expand = "yes")
 
@@ -63,10 +63,10 @@ class App(Tk):
                                                                                                        self.status_label,
                                                                                                        self.url_entry,
                                                                                                        self.refresh_entry)))
-        self.search_button.grid(column=0, row=5)
+        self.search_button.grid(column=0, row=6)
 
         self.close_button = Button(self, text="Fermer", command=self.close)
-        self.close_button.grid(column=0, row=6)
+        self.close_button.grid(column=0, row=7)
 
         self.bind('<Return>', lambda _: ensure_future(self.search(self.slot_string_var,
                                                                   self.status_label,
